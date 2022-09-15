@@ -78,7 +78,7 @@ import networkx as nx
 
 
 #Algoritmo de Dijkstra para determinar ruta mas corta
-df = pd.read_excel("metro.xlsx")
+df = pd.read_excel("metro.csv")
 df.head()
 METRO = nx.from_pandas_edgelist(df,source='Origen',target='Destino',edge_attr='Longitud de interestación')
 djk_path= nx.dijkstra_path(METRO, source='Balbuena', target='Universidad', weight='Longitud de interestación')
