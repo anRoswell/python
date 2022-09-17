@@ -72,16 +72,16 @@ print(black_edges, red_edges)
 import pandas as pd
 import numpy as np
 import networkx as nx
-
+import openpyxl as op
 
 # In[44]:
 
 
 #Algoritmo de Dijkstra para determinar ruta mas corta
-df = pd.read_excel("metro.csv")
-df.head()
-METRO = nx.from_pandas_edgelist(df,source='Origen',target='Destino',edge_attr='Longitud de interestación')
-djk_path= nx.dijkstra_path(METRO, source='Balbuena', target='Universidad', weight='Longitud de interestación')
+df = pd.read_csv("estaciones.csv")
+print(df)
+ESTACION = nx.from_pandas_edgelist(df,source='start',target='end',edge_attr='distancia')
+djk_path= nx.dijkstra_path(ESTACION, source='E1', target='E9', weight='distancia')
 print(djk_path)
 len(djk_path)
 
